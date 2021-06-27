@@ -1,0 +1,30 @@
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 36px;
+  flex: 1;
+  align-items: center;
+}
+
+.aside_menu_lines {
+  width: 38px;
+  visibility: hidden;
+}
+
+.header_logo {
+  min-width: 164px;
+  width: 164px;
+  height: auto;
+  margin-right: 67px;
+}
+
+@media only screen and (max-width: 767px) {
+  .header_logo {
+    margin-right: 30px;
+  }
+
+  .aside_menu_lines {
+    margin-left: 30px;
+    visibility: visible;
+  }
+}

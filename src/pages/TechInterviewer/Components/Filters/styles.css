@@ -1,0 +1,37 @@
+.tech_interviewer_filters {
+  display: flex;
+  flex-direction: column;
+  height: 477px;
+  width: 278px;
+  font-size: 1.6rem;
+  margin-right: 20px;
+  background-color: #dedefc;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.17);
+}
+
+.filters_Input {
+  display: flex;
+  background-color: white;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 7px;
+}
+
+.filters_Input > input {
+  background-color: transparent;
+  width: 100%;
+  border: none;
+  padding: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .tech_interviewer_filters {
+    margin-right: 0;
+    flex: 1;
+    width: calc(100% - 120px);
+    margin: auto;
+    margin-bottom: 30px;
+  }
+}
