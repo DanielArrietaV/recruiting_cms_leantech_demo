@@ -3,6 +3,7 @@
   flex-direction: column;
   height: 477px;
   width: 278px;
+  min-width: 278px;
   font-size: 1.6rem;
   margin-right: 20px;
   background-color: #dedefc;
@@ -24,6 +25,16 @@
   width: 100%;
   border: none;
   padding: 0;
+  outline: none;
+}
+
+.filters_search_button {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.filters_fields_container {
+  margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 767px) {

@@ -1,0 +1,11 @@
+.ui_input_container {
+  display: flex;
+}
+.ui_input {
+  width: 100%;
+  border: none;
+  border-radius: 7px;
+  outline: none;
+  font-size: 16px;
+  padding: 15px;
+}

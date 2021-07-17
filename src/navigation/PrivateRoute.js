@@ -1,13 +1,23 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { Route, Redirect } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+import NotFound from './../components/Errors/NotFound'
+import MainLayout from '../containers/MainLayout'
+import TechInterviewer from '../pages/TechInterviewer'
+import RecruitmentProgress from '../pages/RecruitmentProgress'
+import Configuration from '../pages/Configuration'
+import FormUse from '../pages/FormUse'
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { user } = useSelector(state => state.loginReducer)
+const PrivateRoute = () => {
   return (
-    <Route {...rest} render={props => (
-      user ? <Component {...props} /> : <Redirect to="/auth/login" />
-    )} />
+    <MainLayout>
+      <Switch>
+        <Route exact path={['/', '/tech-interviewer']} component={TechInterviewer} />
+        <Route exact path={['/progress']} component={RecruitmentProgress} />
+        <Route exact path={['/configuration']} component={Configuration} />
+        <Route exact path={['/form']} component={FormUse} />
+        <Route component={NotFound} />
+      </Switch>
+    </MainLayout>
   )
 }
 

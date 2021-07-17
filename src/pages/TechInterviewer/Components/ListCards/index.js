@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Card from '../Card'
 import './styles.css'
 import { listOfApplicants } from '../../../../utils/mockData'
+import Loading from '../../../../components/Loading'
 
 function Cards() {
   const [applicants, setApplicants] = useState([])
@@ -17,7 +18,11 @@ function Cards() {
   }, [])
 
   if (loading === true) {
-    return <p>Loading</p>
+    return (
+      <div className="ui_spinner_container">
+        <Loading />
+      </div>
+    )
   }
 
   return (

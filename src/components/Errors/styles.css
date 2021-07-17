@@ -1,0 +1,9 @@
+.ui_notfound_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.ui_notfound_container > img {
+  max-width: 500px;
+}

@@ -1,0 +1,44 @@
+.ui_login_main_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://peopleworkingcorp.com/PWv2/wp-content/uploads/2017/10/people-working-slider-slide01.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100vh - 74px);
+  background-position: right top;
+}
+
+.ui_login_image {
+  max-width: 100vw;
+  display: flex;
+  align-items: center;
+}
+
+.ui_login_image {
+  opacity: 0.5;
+}
+
+.ui_login_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #dedefc;
+  border-radius: 10px;
+  min-width: 400px;
+  height: 300px;
+  width: 400px;
+}
+
+.ui_login_input {
+  margin: 20px;
+}
+
+.ui_login_btn {
+  align-self: center;
+  width: 150px;
+}
+
+.ui_login_container > a {
+  align-self: center;
+}
