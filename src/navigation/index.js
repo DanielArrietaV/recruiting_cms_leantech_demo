@@ -1,20 +1,16 @@
-import React from 'react'
-import { BrowserRouter, Redirect, Switch } from 'react-router-dom'
-import Dashboard from '../pages/Main/Dashboard'
-import Login from './../pages/Auth/Login'
-import TechInterviewer from '../pages/TechInterviewer/'
-// import PrivateRoute from './PrivateRoute'
-import PublicRoute from './PublicRoute'
+import React, { useContext } from 'react'
+import { BrowserRouter, Switch } from 'react-router-dom'
+import PrivateRoute from '../navigation/PrivateRoute'
+import PublicRoute from '../navigation/PublicRoute'
+import { AuthContext } from '../context/authContext'
+// import { useManageAuth } from '../hooks/useManageAuth'
 
 const MainRouter = () => {
+  const { isAuth } = useContext(AuthContext)
+
   return (
     <BrowserRouter>
-      <Switch>
-        <PublicRoute exact path="/tech-interviewer" component={TechInterviewer} />
-        <PublicRoute exact path={['/', '/auth', '/auth/login']} component={Login} />
-        <PublicRoute exact path="/dashboard" component={Dashboard} />
-        <Redirect to="/auth/login" />
-      </Switch>
+      <Switch>{isAuth === true ? <PrivateRoute /> : <PublicRoute />}</Switch>
     </BrowserRouter>
   )
 }

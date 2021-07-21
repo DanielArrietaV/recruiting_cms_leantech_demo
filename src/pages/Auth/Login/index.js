@@ -1,74 +1,53 @@
-import React, { useState } from 'react'
-import { TextField, Button, Typography, CircularProgress } from '@material-ui/core'
-import { LoginPage } from './styles'
-import { useDispatch, useSelector } from 'react-redux'
-import { login } from '../../../redux/auth/login/actions'
+import React, { useState, useContext } from 'react'
+import { AuthContext } from '../../../context/authContext'
+import Button from '../../../components/Button'
+import Input from '../../../components/Input'
+import './styles.css'
+import Header from '../../../components/Header'
+// import Pexels from '../../../assets/images/pexels-photo-3861958.jpeg'
+import { initialLoginValues } from './components/helpers'
 
-const Login = () => {
-  const dispatch = useDispatch()
-  const { loading } = useSelector(state => state.loginReducer)
-  const [error, setError] = useState('')
-  const [credentials, setCredentials] = useState({
-    username: '',
-    password: ''
-  })
-
-  const handleChange = (name) => (event) =>
-    setCredentials((prevState) => ({
-      ...prevState,
-      [name]: event.target.value
-    }))
+function Login() {
+  const { setIsAuth } = useContext(AuthContext)
 
   const handleLogin = () => {
-    if (credentials.username && credentials.password) {
-      setError('')
-      dispatch(login(credentials))
-    } else {
-      setError('The username and the password are required')
-    }
+    setIsAuth(true)
   }
 
+  const [loginValues, setLoginValues] = useState(initialLoginValues)
+  const handleChange = (event) => {
+    setLoginValues({ ...loginValues, [event.target.name]: event.target.value })
+    console.log(loginValues)
+  }
+
+  // const handleClick = (event) => {
+  //   console.log(loginValues)
+  // }
   return (
-    <LoginPage>
-      <form className="form" autoComplete="off">
-        <h1>Welcome!</h1>
-        <div className="input">
-          <TextField
-            required
-            id="username"
-            value={credentials.username}
-            onChange={handleChange('username')}
-            label="Username"
-            placeholder="Username"
-            variant="outlined"
-            inputProps={{
-              'data-testid': 'loginUsernameInput'
-            }}
-            style={{ width: '100%' }}
-          />
+    <>
+      <Header />
+      <div className="ui_login_main_container">
+        <div className="ui_login_image">{/* <img src={Pexels} alt="Login image" /> */}</div>
+        <div className="ui_login_container">
+          <div className="ui_login_input">
+            <Input placeholder="Email" name="email" onChange={handleChange} value={loginValues.email} />
+          </div>
+          <div className="ui_login_input">
+            <Input
+              placeholder="Password"
+              name="password"
+              onChange={handleChange}
+              value={loginValues.password}
+              type="password"
+            />
+          </div>
+          <div className="ui_login_btn">
+            <Button text="Sing In" onClick={handleLogin} />
+          </div>
+          <a>Forgot password?</a>
         </div>
-        <div className="input">
-          <TextField
-            required
-            id="password"
-            value={credentials.password}
-            onChange={handleChange('password')}
-            label="Password"
-            placeholder="Password"
-            variant="outlined"
-            inputProps={{
-              'data-testid': 'loginPasswordInput'
-            }}
-            type="password"
-            style={{ width: '100%' }}
-          />
-        </div>
-        {Boolean(error) && <Typography role="error" variant="subtitle1" gutterBottom color="error">{error}</Typography>}
-        <Button variant="contained" color="primary" onClick={handleLogin} style={{ width: '100%' }}>
-          {loading ? <CircularProgress color="secondary" size={20} /> : 'Login'}
-        </Button>
-      </form>
-    </LoginPage>
+      </div>
+    </>
   )
 }
 

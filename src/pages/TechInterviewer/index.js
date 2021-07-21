@@ -1,20 +1,22 @@
 import React from 'react'
-import Filters from './Components/Filters'
-import ListCards from './Components/ListCards'
+import Logout from '../../components/LogoutButton'
+import Filters from './components/Filters'
+import ListCards from './components/ListCards'
+
 import './styles.css'
-import MainLayout from '../../containers/MainLayout'
 
 function techInterviewer() {
   return (
-    <MainLayout>
-      <div className="tech_interviewer_container">
-        <h1 className="tech_interviewer_title">New Applicants</h1>
-        <div className="tech_interviewer_body">
-          <Filters />
-          <ListCards className="tech_interviewer_list" />
-        </div>
+    <div className="tech_interviewer_container">
+      <div className="tech_interviewer_logout">
+        <Logout />
       </div>
-    </MainLayout>
+      <h1 className="tech_interviewer_title">New Applicants</h1>
+      <div className="tech_interviewer_body">
+        <Filters />
+        <ListCards className="tech_interviewer_list" />
+      </div>
+    </div>
   )
 }
 

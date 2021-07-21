@@ -7,13 +7,13 @@ function Aside() {
     <div className="aside_menu_container">
       <ul className="aside_menu">
         <li>
-          <Link to="/">Overview</Link>
+          <Link to="/tech-interviewer">Tech Interviewer</Link>
         </li>
         <li>
-          <Link to="/">Data</Link>
+          <Link to="/configuration">Configuration</Link>
         </li>
         <li>
-          <Link to="/">Caledar</Link>
+          <Link to="/form">Form</Link>
         </li>
       </ul>
     </div>

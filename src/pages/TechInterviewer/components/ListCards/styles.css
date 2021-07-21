@@ -1,0 +1,24 @@
+.list_cards_container {
+  flex: 1;
+}
+
+.list_Cards {
+  margin-top: 0;
+  width: 100%;
+  list-style: none;
+  text-decoration: none;
+  padding: 0;
+}
+
+.ui_spinner_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+  .list_cards_container {
+    width: calc(100% - 60px);
+    margin: auto;
+  }
+}

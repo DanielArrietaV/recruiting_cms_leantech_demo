@@ -1,14 +1,15 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { Route, Redirect } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
+import Login from '../pages/Auth/Login'
+import NotFound from './../components/Errors/NotFound'
 
-const PublicRoute = ({ component: Component, ...rest }) => {
-  const { user } = useSelector(state => state.loginReducer)
+const PublicRoutes = () => {
   return (
-    <Route {...rest} render={props => (
-      user ? <Redirect to="/dashboard" /> : <Component {...props} />
-    )} />
+    <Switch>
+      <Route exact path={['/', '/login']} component={Login} />
+      <Route component={NotFound} />
+    </Switch>
   )
 }
 
-export default PublicRoute
+export default PublicRoutes
