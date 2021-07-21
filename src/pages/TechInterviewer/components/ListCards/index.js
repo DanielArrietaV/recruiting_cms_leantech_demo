@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import Card from '../Card'
 import './styles.css'
-import { listOfApplicants } from '../../../../utils/mockData'
 import Loading from '../../../../components/Loading'
+import { getApplicantsService } from '../../../../redux/applicants/services'
 
 function Cards() {
   const [applicants, setApplicants] = useState([])
   const [loading, setLoading] = useState(true)
+
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setLoading(false)
-      setApplicants(listOfApplicants)
-    }, 3000)
-    return () => {
-      clearTimeout(timeout)
-    }
+    getApplicantsService()
+      .then((res) => {
+        setApplicants(res.data.result)
+        setLoading(false)
+      })
+      .catch((e) => console.log(e))
   }, [])
 
   if (loading === true) {

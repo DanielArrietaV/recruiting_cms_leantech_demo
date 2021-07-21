@@ -1,7 +1,8 @@
 import React from 'react'
 import Logout from '../../components/LogoutButton'
-import Filters from './Components/Filters'
-import ListCards from './Components/ListCards'
+import Filters from './components/Filters'
+import ListCards from './components/ListCards'
+
 import './styles.css'
 
 function techInterviewer() {

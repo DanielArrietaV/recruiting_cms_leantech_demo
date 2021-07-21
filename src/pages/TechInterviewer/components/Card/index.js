@@ -11,9 +11,9 @@ const Card = (props) => {
       <div className="card_info_container">
         <div className="card_main_username">
           <span>{item.name}</span>
-          <span>{item.lastName}</span>
+          <span>{item.last_name}</span>
         </div>
-        <p>{item.mainTechnology}</p>
+        <p>{item.technology}</p>
         <p>{item.seniority}</p>
       </div>
     </div>

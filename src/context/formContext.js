@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react'
 import { initialFormValues } from '../pages/FormUse/helpers'
+import { postFormInfo } from '../redux/form/services'
 
 export const FormContext = createContext({
   formValues: initialFormValues,
@@ -25,8 +26,15 @@ const FormProvider = (props) => {
     }
   }
 
-  const handleSubmit = () => {
-    console.log(formValues)
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    postFormInfo(formValues)
+      .then((res) => {
+        console.log(res.data.result)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   return (
